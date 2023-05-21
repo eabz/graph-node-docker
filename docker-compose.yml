@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  graph-node:
+    image: graphprotocol/graph-node
+    ports:
+      - '8000:8000'
+      - '8001:8001'
+      - '8020:8020'
+      - '8030:8030'
+      - '8040:8040'
+    depends_on:
+      - ipfs
+      - postgres
+    environment:
+      postgres_host: postgres
+      postgres_user: graph-node
+      postgres_pass: ${DB_PASSWORD}
+      postgres_db: graph-node
+      ipfs: 'ipfs:5001'
+      ethereum: 'eth:${RPC_URL}'
+      GRAPH_LOG: debug
+    env_file:  
+      - "./.env"
+    restart: always
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    ports:
+      - '5001:5001'
+    volumes:
+      - ./data/ipfs:/data/ipfs
+    restart: always
+  postgres:
+    image: postgres:latest
+    command: ["postgres", "-cshared_preload_libraries=pg_stat_statements"]
+    environment:
+      POSTGRES_USER: graph-node
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: graph-node
+      POSTGRES_INITDB_ARGS: "-E UTF8 --locale=C"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    env_file:  
+      - "./.env"  
+    restart: always
