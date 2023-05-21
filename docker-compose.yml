@@ -17,7 +17,7 @@ services:
       postgres_pass: ${DB_PASSWORD}
       postgres_db: graph-node
       ipfs: 'ipfs:5001'
-      ethereum: 'eth:${RPC_URL}'
+      ethereum: 'mainnet:${RPC_URL}'
       GRAPH_LOG: debug
     env_file:  
       - "./.env"
