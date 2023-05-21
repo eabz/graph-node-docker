@@ -19,7 +19,7 @@ $ cp .env.example .env
 $ docker-compose up
 ```
 
-## Nginx configuration
+## NGINX configuration
 
 There is an optional configuration file to add an nginx proxy to use with a domain.
 
