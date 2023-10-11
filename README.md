@@ -22,7 +22,3 @@ $ docker-compose up
 ## NGINX configuration
 
 There is an optional configuration file to add an nginx proxy to use with a domain.
-
-## Contribution Guidelines
-
-Developers are expected to follow contribution guidelines to keep the codebase efficient, readable, and standardized. Contribution guidelines are clearly laid out so developers and contributors can submit their work without much revision, resulting in faster development and more useful contributions. These guideliness are specified through the `rome` configuration.
