@@ -17,12 +17,12 @@ services:
       postgres_db: graph-node
       ipfs: 'ipfs:5001'
       ethereum: 'mainnet:${RPC_URL}'
-      GRAPH_LOG: debug
+      GRAPH_LOG: info
     env_file:  
       - "./.env"
     restart: always
   ipfs:
-    image: ipfs/kubo:v0.17.0
+    image: ipfs/kubo:master-latest
     ports:
       - '5001:5001'
     volumes:
