@@ -22,7 +22,7 @@ services:
       - "./.env"
     restart: always
   ipfs:
-    image: ipfs/kubo:master-latest
+    image: ipfs/kubo:v0.17.0
     ports:
       - '5001:5001'
     volumes:
