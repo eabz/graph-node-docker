@@ -22,11 +22,11 @@ services:
       - "./.env"
     restart: always
   ipfs:
-    image: ipfs/kubo:v0.17.0
+    image: ipfs/kubo:v0.23.0
     ports:
       - '5001:5001'
     volumes:
-      - ./data/ipfs:/data/ipfs:Z
+      - ./data/ipfs:/data/ipfs
     restart: always
   postgres:
     image: postgres:latest
