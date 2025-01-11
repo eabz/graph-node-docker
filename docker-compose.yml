@@ -15,18 +15,11 @@ services:
       postgres_user: graph-node
       postgres_pass: ${DB_PASSWORD}
       postgres_db: graph-node
-      ipfs: 'ipfs:5001'
+      ipfs: 'https://ipfs.network.thegraph.com/'
       ethereum: 'mainnet:${RPC_URL}'
       GRAPH_LOG: info
     env_file:  
       - "./.env"
-    restart: always
-  ipfs:
-    image: ipfs/kubo:v0.23.0
-    ports:
-      - '5001:5001'
-    volumes:
-      - ./data/ipfs:/data/ipfs
     restart: always
   postgres:
     image: postgres:latest
