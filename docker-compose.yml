@@ -15,9 +15,9 @@ services:
       postgres_pass: ${DB_PASSWORD}
       postgres_db: graph-node
       ipfs: 'https://ipfs.network.thegraph.com/'
-      ethereum: '${NETWORK}:${RPC_URL}'
+      ethereum: 'mainnet:${RPC_URL}'
       GRAPH_LOG: info
-    env_file:  
+    env_file:
       - "./.env"
     restart: always
   postgres:
@@ -30,6 +30,6 @@ services:
       POSTGRES_INITDB_ARGS: "-E UTF8 --locale=C"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
-    env_file:  
-      - "./.env"  
+    env_file:
+      - "./.env"
     restart: always
