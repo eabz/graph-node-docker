@@ -15,7 +15,7 @@ services:
       postgres_pass: ${DB_PASSWORD}
       postgres_db: graph-node
       ipfs: 'https://ipfs.network.thegraph.com/'
-      ethereum: 'mainnet:${RPC_URL}'
+      ethereum: '${NETWORK}:${RPC_URL}'
       GRAPH_LOG: info
     env_file:
       - "./.env"
